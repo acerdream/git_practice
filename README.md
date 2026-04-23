@@ -11,14 +11,28 @@
 ### Git 环境配置与本地仓库创建
 
 1. **安装 Git**
-   - 在 Linux 终端中使用 `sudo apt install git` 安装 Git
+   - 在 Linux 终端中使用以下命令安装 Git：
+     ```bash
+     sudo apt install git
+     ```
 
 2. **配置 Git 身份信息**
-   - 在 Linux 终端中使用 `git config --global user.name "user_name"` 配置用户名称
-   - 在 Linux 终端中使用 `git config --global user.email "user_email"` 配置用户邮箱
+   - 在 Linux 终端中使用以下命令配置用户名称：
+     ```bash
+     git config --global user.name "user_name"
+     ```
+   - 在 Linux 终端中使用以下命令配置用户邮箱：
+     ```bash
+     git config --global user.email "user_email"
+     ```
 
 3. **创建本地仓库**
-   - 在 Linux 终端中使用 `mkdir` 命令创建文件夹，进入该文件夹，执行 `git init` 创建本地仓库
+   - 在 Linux 终端中使用以下命令创建文件夹并初始化 Git 仓库：
+     ```bash
+     mkdir project_folder
+     cd project_folder
+     git init
+     ```
 
 ### 远程仓库创建与关联
 
@@ -27,17 +41,50 @@
    - 复制远程仓库的 SSH 地址（不是 HTTPS 地址，后续可以知道原因）
 
 2. **关联本地仓库与远程仓库**
-   - 修改连接端口为 443：执行 `git remote set-url origin ssh://git@github.com:443/user_name/repository_name.git`，也可以修改 `~/.ssh/config` 文件避免每次连接都修改端口
+   - 修改连接端口为 443：执行以下命令：
+     ```bash
+     git remote set-url origin ssh://git@github.com:443/user_name/repository_name.git
+     ```
+     也可以修改 `~/.ssh/config` 文件避免每次连接都修改端口
    - 实现 Git SSH 连接：
-     - 生成 SSH 密钥对：执行 `ssh-keygen -t ed25519 -C "user_email"` 生成密钥对，生成后密码可输可不输
-     - 启用 SSH 代理：执行 `ssh-add ~/.ssh/id_ed25519` 将密钥添加到 SSH 代理中
-     - 查看并复制公钥到 Github：执行 `cat ~/.ssh/id_ed25519.pub` 查看公钥，复制公钥到 Github 账号的 SSH keys 中，最后添加即可
-     - 测试连接：执行 `ssh -T git@github.com` 测试连接，如果返回 "Hi, user_name! You've successfully authenticated, but GitHub does not provide shell access." 则连接成功
-   - 关联文件夹和远程仓库：执行 `git remote add origin "先前复制的 SSH 地址"`，可以执行 `git remote -v` 查看关联结果
+     - 生成 SSH 密钥对：执行以下命令：
+       ```bash
+       ssh-keygen -t ed25519 -C "user_email"
+       ```
+       生成后密码可输可不输
+     - 启用 SSH 代理：执行以下命令：
+       ```bash
+       ssh-add ~/.ssh/id_ed25519
+       ```
+     - 查看并复制公钥到 Github：执行以下命令：
+       ```bash
+       cat ~/.ssh/id_ed25519.pub
+       ```
+       复制公钥到 Github 账号的 SSH keys 中，最后添加即可
+     - 测试连接：执行以下命令：
+       ```bash
+       ssh -T git@github.com
+       ```
+       如果返回 "Hi, user_name! You've successfully authenticated, but GitHub does not provide shell access." 则连接成功
+   - 关联文件夹和远程仓库：执行以下命令：
+     ```bash
+     git remote add origin "先前复制的 SSH 地址"
+     ```
+     可以执行以下命令查看关联结果：
+     ```bash
+     git remote -v
+     ```
 
 3. **推送本地到远程仓库**
    - 使用 VSCode 进行文件编写，在左栏添加说明点击推送即可
-   - 执行 `git push -u origin "branch_name"` 推送本地到远程仓库，不知道 branch_name 可以执行 `git branch` 查看
+   - 执行以下命令推送本地到远程仓库：
+     ```bash
+     git push -u origin "branch_name"
+     ```
+     不知道 branch_name 可以执行以下命令查看：
+     ```bash
+     git branch
+     ```
    - 返回 Github 刷新页面，即可看到推送的文件
 
 ## 本次实践提交主要内容

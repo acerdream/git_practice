@@ -17,17 +17,17 @@
      ```
 
 2. **配置 Git 身份信息**
-   - 在 Linux 终端中使用以下命令配置用户名称：
+   - 在 Linux 终端中使用以下命令配置Git用户名称：
      ```bash
      git config --global user.name "user_name"
      ```
-   - 在 Linux 终端中使用以下命令配置用户邮箱：
+   - 在 Linux 终端中使用以下命令配置Git用户邮箱：
      ```bash
      git config --global user.email "user_email"
      ```
 
 3. **创建本地仓库**
-   - 在 Linux 终端中使用以下命令创建文件夹并初始化 Git 仓库：
+   - 在 Linux 终端中使用以下命令创建文件夹,进入文件夹并初始化 Git 仓库：
      ```bash
      mkdir project_folder
      cd project_folder
@@ -41,32 +41,32 @@
    - 复制远程仓库的 SSH 地址（不是 HTTPS 地址，后续可以知道原因）
 
 2. **关联本地仓库与远程仓库**
-   - 修改连接端口为 443：执行以下命令：
+   - 建议修改连接端口为 443：执行以下命令：
      ```bash
      git remote set-url origin ssh://git@github.com:443/user_name/repository_name.git
      ```
      也可以修改 **~/.ssh/config** 文件避免每次连接都修改端口
    - 实现 Git SSH 连接：
-     - 生成 SSH 密钥对：执行以下命令：
+     - 执行以下命令生成 SSH 密钥对:
        ```bash
        ssh-keygen -t ed25519 -C "user_email"
        ```
-       生成后密码可输可不输
-     - 启用 SSH 代理：执行以下命令：
+       生成后密码可输可不输,回车即可
+     - 执行以下命令启用 SSH 代理:
        ```bash
        ssh-add ~/.ssh/id_ed25519
        ```
-     - 查看并复制公钥到 Github：执行以下命令：
+     - 执行以下命令查看公钥:
        ```bash
        cat ~/.ssh/id_ed25519.pub
        ```
-       复制公钥到 Github 账号的 SSH keys 中，最后添加即可
-     - 测试连接：执行以下命令：
+       然后复制公钥到 Github 账号的 SSH keys 中，最后添加即可
+     - 执行以下命令测试连接是否成功:
        ```bash
        ssh -T git@github.com
        ```
        如果返回 "Hi, user_name! You've successfully authenticated, but GitHub does not provide shell access." 则连接成功
-   - 关联文件夹和远程仓库：执行以下命令：
+   - 执行以下命令关联文件夹和远程仓库：
      ```bash
      git remote add origin "先前复制的 SSH 地址"
      ```
@@ -99,6 +99,8 @@
 2. **关联超时**：使用 SSH 代理，具体操作参照上面"关联本地仓库与远程仓库"中的启用 SSH 代理
 
 3. **仓库的 HTTPS 地址关联失败**：改用 SSH 地址关联即可
+
+4. **README.md文件排版问题**：强调文本不要用单反号,建议文本两边用'**'(会有字体加粗效果)
 
 ## Git 实践心得
 

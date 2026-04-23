@@ -45,7 +45,7 @@
      ```bash
      git remote set-url origin ssh://git@github.com:443/user_name/repository_name.git
      ```
-     也可以修改 `~/.ssh/config` 文件避免每次连接都修改端口
+     也可以修改 **~/.ssh/config** 文件避免每次连接都修改端口
    - 实现 Git SSH 连接：
      - 生成 SSH 密钥对：执行以下命令：
        ```bash
